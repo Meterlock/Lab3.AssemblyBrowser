@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyBrowserWPF", "AssemblyBrowserWPF.csproj", "{631C68DD-7EB9-42AA-83C6-2168821C2C56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyBrowser", "..\AssemblyBrowser\AssemblyBrowser.csproj", "{3CAA19E4-5676-4492-9BA8-B060B10BE96E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{3475B2A5-4042-43CE-A806-00CA917C704C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{631C68DD-7EB9-42AA-83C6-2168821C2C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631C68DD-7EB9-42AA-83C6-2168821C2C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631C68DD-7EB9-42AA-83C6-2168821C2C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631C68DD-7EB9-42AA-83C6-2168821C2C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAA19E4-5676-4492-9BA8-B060B10BE96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAA19E4-5676-4492-9BA8-B060B10BE96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAA19E4-5676-4492-9BA8-B060B10BE96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAA19E4-5676-4492-9BA8-B060B10BE96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3475B2A5-4042-43CE-A806-00CA917C704C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3475B2A5-4042-43CE-A806-00CA917C704C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3475B2A5-4042-43CE-A806-00CA917C704C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3475B2A5-4042-43CE-A806-00CA917C704C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
