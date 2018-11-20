@@ -6,10 +6,17 @@
         xmlns:local="clr-namespace:AssemblyBrowserWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Open file" Width="100" Grid.Row="0"/>
+        <Label Content="Filename" HorizontalAlignment="Center" Grid.Row="1"/>
 
     </Grid>
+    
 </Window>
