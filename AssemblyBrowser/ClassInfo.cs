@@ -58,7 +58,8 @@ namespace AssemblyBrowser
 
             foreach (MethodInfo method in methods)
             {
-                Elements[2].ClassificationElements.Add(new Method(method));
+                if (!method.IsSpecialName)
+                    Elements[2].ClassificationElements.Add(new Method(method));
             }
         }
     }

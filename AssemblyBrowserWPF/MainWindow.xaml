@@ -8,6 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -18,7 +19,7 @@
         <Label Content="{Binding Filename}" HorizontalAlignment="Center" Margin="2" Grid.Row="1"/>
 
         <StackPanel DataContext="{Binding Result}" Grid.Row="2" Orientation="Horizontal">
-        <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Namespaces}">
+            <TreeView ItemsSource="{Binding Namespaces}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="510">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Classes}">
                     <Label Content="{Binding Path=Name}" />

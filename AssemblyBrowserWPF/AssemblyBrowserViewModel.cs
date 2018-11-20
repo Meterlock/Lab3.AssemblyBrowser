@@ -61,7 +61,7 @@ namespace AssemblyBrowserWPF
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Filename = openFileDialog.FileName;
-                    Result = new AssemblyBrowser.AssemblyBrowser().Browse(Filename);
+                    Result = new AssemblyBrowser.AssemblyBrowser().Browse(openFileDialog.FileName);
                 }
             }
             catch (Exception e)
