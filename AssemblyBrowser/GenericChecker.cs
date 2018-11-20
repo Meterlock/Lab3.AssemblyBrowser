@@ -14,6 +14,7 @@ namespace AssemblyBrowser
 
         private static string GetGenericArguments(Type[] argumentTypes)
         {
+            int cnt = 1;
             string result = "";
             foreach (Type type in argumentTypes)
             {
@@ -21,6 +22,9 @@ namespace AssemblyBrowser
                     result += type.Name + "<" + GetGenericArguments(type.GenericTypeArguments) + ">";
                 else
                     result += type.Name;
+                if (cnt != argumentTypes.Length)
+                    result += ",";
+                cnt++;
             }
             return result;
         }

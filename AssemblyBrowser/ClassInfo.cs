@@ -10,8 +10,8 @@ namespace AssemblyBrowser
         {
             type = _type;
             Name = type.Name;
-            
-            ElementsInit();
+
+            Elements = new List<ClassInfoElements>();
             ScanFields();
             ScanProperties();
             ScanMethods();
@@ -21,14 +21,6 @@ namespace AssemblyBrowser
         private Type type;
         public List<ClassInfoElements> Elements { get; set; }
 
-        public void ElementsInit()
-        {
-            Elements = new List<ClassInfoElements>();
-            Elements.Add(new ClassInfoElements("Fields"));
-            Elements.Add(new ClassInfoElements("Properties"));
-            Elements.Add(new ClassInfoElements("Methods"));
-        }
-
         public void ScanFields()
         {
             FieldInfo[] fields = type.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Static | 
@@ -36,7 +28,9 @@ namespace AssemblyBrowser
 
             foreach (FieldInfo field in fields)
             {
-                Elements[0].ClassificationElements.Add(new Field(field));
+                if (Elements.Find(x => x.Classification == "Fields") == null)
+                    Elements.Add(new ClassInfoElements("Fields"));
+                Elements.Find(x => x.Classification == "Fields").ClassificationElements.Add(new Field(field));
             }
         }
         
@@ -47,7 +41,9 @@ namespace AssemblyBrowser
 
             foreach (PropertyInfo property in properties)
             {
-                Elements[1].ClassificationElements.Add(new Property(property));
+                if (Elements.Find(x => x.Classification == "Properties") == null)
+                    Elements.Add(new ClassInfoElements("Properties"));
+                Elements.Find(x => x.Classification == "Properties").ClassificationElements.Add(new Property(property));
             }
         }
         
@@ -58,8 +54,10 @@ namespace AssemblyBrowser
 
             foreach (MethodInfo method in methods)
             {
+                if (Elements.Find(x => x.Classification == "Methods") == null)
+                    Elements.Add(new ClassInfoElements("Methods"));
                 if (!method.IsSpecialName)
-                    Elements[2].ClassificationElements.Add(new Method(method));
+                    Elements.Find(x => x.Classification == "Methods").ClassificationElements.Add(new Method(method));
             }
         }
     }

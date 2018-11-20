@@ -6,7 +6,7 @@ namespace TestLib
     class Testable
     {
         public int number;
-        public List<int> list;
+        public List<Dictionary<Dictionary<int, string>, string>> list;
         public int[] arr;
         string str = "";
         private static float floatfld;

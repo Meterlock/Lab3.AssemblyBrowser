@@ -53,8 +53,17 @@ namespace UnitTest
         [TestMethod]
         public void MethodsTest()
         {
-            Assert.IsNotNull(result.Namespaces[1].Classes[2].Elements[2].ClassificationElements);
-            Assert.AreEqual(1, result.Namespaces[1].Classes[2].Elements[2].ClassificationElements.Count);
+            Assert.IsNotNull(result.Namespaces[1].Classes[2].Elements.Find(x =>
+            x.Classification == "Methods").ClassificationElements);
+            Assert.AreEqual(1, result.Namespaces[1].Classes[2].Elements.Find(x =>
+            x.Classification == "Methods").ClassificationElements.Count);
+        }
+
+        [TestMethod]
+        public void GenericRecurseTest()
+        {
+            Assert.IsNotNull(result.Namespaces[1].Classes[0].Elements.Find(x => 
+            x.Classification == "Fields").ClassificationElements.Find(x => x.Name == "List`1<Dictionary`2<Dictionary`2<Int32,String>,String>> list"));
         }
     }
 }
