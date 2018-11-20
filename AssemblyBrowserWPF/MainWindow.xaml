@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssemblyBrowserWPF"
+        xmlns:vm="clr-namespace:AssemblyBrowserWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    
+
+    <Window.DataContext>
+        <vm:AssemblyBrowserViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -14,8 +19,8 @@
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Open file" Width="100" Grid.Row="0"/>
-        <Label Content="Filename" HorizontalAlignment="Center" Grid.Row="1"/>
+        <Button Content="Open file" Command ="{Binding OpenFileCommand}" Width="100" Margin="2" Grid.Row="0"/>
+        <Label Content="{Binding Filename}" HorizontalAlignment="Center" Margin="2" Grid.Row="1"/>
 
     </Grid>
     
