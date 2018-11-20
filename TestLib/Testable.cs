@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestLib
 {
@@ -36,6 +33,7 @@ namespace TestLib
 
     public abstract class Testable2
     {
+        private int abc;
         public abstract int prop { get; }
         public abstract void Method();
     }
@@ -51,9 +49,9 @@ namespace TestLib
 
 namespace NS2
 {
-    public class SecondClass
+    public class SomeClass
     {
-        public SecondClass() { }
+        public SomeClass() { }
         private object nextMethod(int val)
         {
             return new Object();
