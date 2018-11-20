@@ -23,6 +23,7 @@ namespace AssemblyBrowserWPF
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new AssemblyBrowserViewModel();
         }
     }
 }

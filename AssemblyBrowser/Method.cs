@@ -2,7 +2,7 @@
 
 namespace AssemblyBrowser
 {
-    public class Method
+    public class Method : IElement
     {
         public Method(MethodInfo method)
         {

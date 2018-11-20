@@ -10,13 +10,24 @@ namespace AssemblyBrowser
         {
             type = _type;
             Name = type.Name;
+            
+            ElementsInit();
+            ScanFields();
+            ScanProperties();
+            ScanMethods();
         }
 
         public string Name { get; set; }
         private Type type;
-        public List<Field> Fields { get; set; }
-        public List<Method> Methods { get; set; }
-        public List<Property> Properties { get; set; }
+        public List<ClassInfoElements> Elements { get; set; }
+
+        public void ElementsInit()
+        {
+            Elements = new List<ClassInfoElements>();
+            Elements.Add(new ClassInfoElements("Fields"));
+            Elements.Add(new ClassInfoElements("Properties"));
+            Elements.Add(new ClassInfoElements("Methods"));
+        }
 
         public void ScanFields()
         {
@@ -25,7 +36,7 @@ namespace AssemblyBrowser
 
             foreach (FieldInfo field in fields)
             {
-                Fields.Add(new Field(field));
+                Elements[0].ClassificationElements.Add(new Field(field));
             }
         }
         
@@ -36,7 +47,7 @@ namespace AssemblyBrowser
 
             foreach (PropertyInfo property in properties)
             {
-                Properties.Add(new Property(property));
+                Elements[1].ClassificationElements.Add(new Property(property));
             }
         }
         
@@ -47,7 +58,7 @@ namespace AssemblyBrowser
 
             foreach (MethodInfo method in methods)
             {
-                Methods.Add(new Method(method));
+                Elements[2].ClassificationElements.Add(new Method(method));
             }
         }
     }

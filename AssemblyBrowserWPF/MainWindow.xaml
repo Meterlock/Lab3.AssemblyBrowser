@@ -4,13 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssemblyBrowserWPF"
-        xmlns:vm="clr-namespace:AssemblyBrowserWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-
-    <Window.DataContext>
-        <vm:AssemblyBrowserViewModel/>
-    </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,6 +17,31 @@
         <Button Content="Open file" Command ="{Binding OpenFileCommand}" Width="100" Margin="2" Grid.Row="0"/>
         <Label Content="{Binding Filename}" HorizontalAlignment="Center" Margin="2" Grid.Row="1"/>
 
+        <StackPanel DataContext="{Binding Result}" Grid.Row="2" Orientation="Horizontal">
+        <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Namespaces}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Classes}">
+                    <Label Content="{Binding Path=Name}" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <HierarchicalDataTemplate  ItemsSource="{Binding Elements}">
+                            <Label Content="{Binding Path=Name}" />
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <HierarchicalDataTemplate  ItemsSource="{Binding ClassificationElements}">
+                                    <Label Content="{Binding Path=Classification}" />
+                                    <HierarchicalDataTemplate.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding Path=Name}"/>
+                                        </DataTemplate>
+                                    </HierarchicalDataTemplate.ItemTemplate>
+                                </HierarchicalDataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        </StackPanel>
+        
     </Grid>
     
 </Window>

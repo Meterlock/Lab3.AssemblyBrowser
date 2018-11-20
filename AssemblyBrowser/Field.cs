@@ -2,7 +2,7 @@
 
 namespace AssemblyBrowser
 {
-    public class Field
+    public class Field : IElement
     {
         public Field(FieldInfo field)
         {

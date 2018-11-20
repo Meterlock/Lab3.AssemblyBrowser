@@ -2,7 +2,7 @@
 
 namespace AssemblyBrowser
 {
-    public class Property
+    public class Property : IElement
     {
         public Property(PropertyInfo property)
         {
